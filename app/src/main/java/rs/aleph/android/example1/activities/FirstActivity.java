@@ -16,7 +16,7 @@ import rs.aleph.android.example1.fragments.DetailFragment;
 import rs.aleph.android.example1.fragments.ListFragment;
 // Each activity extends Activity class
 public class FirstActivity extends Activity implements ListFragment.OnItemSelectedListener {
-
+    //04.06.2018
 	// Screen orientation
 	private boolean landscape = false;
 

@@ -75,7 +75,7 @@ public class ListFragment extends Fragment{
         // Shows a toast message (a pop-up message)
         Toast.makeText(getActivity(), "ListFragment.onActivityCreated()", Toast.LENGTH_SHORT).show();
 
-        // Loads fruits from array resource
+        // Loads food from array resource
         final List<String> jeloNames = JeloProvider.getJeloNames();
 
         // Creates an ArrayAdaptar from the array of String
