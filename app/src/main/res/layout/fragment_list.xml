@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- LinearLayout layouts views lineary (either horizontaly or verticaly). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
+
+
+    <Button
+        android:id="@+id/btn_start_second_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnStartActivityClicked"
+        android:text="@string/second_activity_name"
+        />
+
+    <!-- Declares a button that opens a browser -->
+    <Button
+        android:id="@+id/btn_select_contact"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:drawableLeft="@drawable/ic_action_search"
+        android:onClick="btnSelectContactClicked"
+        android:text="@string/select_contact_name" />
+
+    <!-- Button can be pressed, or clicked, by the user to perform an action. -->
+    <ListView
+        android:id="@+id/lista_jela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

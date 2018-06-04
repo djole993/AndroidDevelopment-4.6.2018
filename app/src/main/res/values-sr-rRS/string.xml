@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Resursi &amp; Konfiguracija</string>
+    <string name="first_activity_name">Prva Aktivnost</string>
+    <string name="second_activity_name">Druga Aktivnost</string>
+    <string name="third_activity_name">Treca Aktivnost</string>
+    <string name="select_contact_name">Izaberi Kontakt</string>
+    <string name="open_camera_name">Pokreni Kameru</string>
+    <string name="open_food_cevapi">Prikaz Jela Cevapi</string>
+    <string name="open_food_sarma">Prikaz Jela Sarma</string>
+
+    <string name="unable_to_invoke_camera">Ne mozes otvoriti kameru, bez dozvole!</string>
+    <string name="buy">Kupi</string>
+</resources>

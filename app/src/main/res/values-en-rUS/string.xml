@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Resources &amp; Configurations</string>
+    <string name="first_activity_name">First Activity</string>
+    <string name="second_activity_name">Second Activity</string>
+    <string name="third_activity_name">Third Activity</string>
+    <string name="select_contact_name">Select Contact</string>
+    <string name="open_camera_name">Start Camera</string>
+    <string name="open_food_cevapi">Show Food Cevapi</string>
+    <string name="open_food_sarma">Show Food Sarma</string>
+
+    <string name="unable_to_invoke_camera">Unable to invoke camere, without permisson!</string>
+    <string name="buy">Buy</string>
+
+</resources>
