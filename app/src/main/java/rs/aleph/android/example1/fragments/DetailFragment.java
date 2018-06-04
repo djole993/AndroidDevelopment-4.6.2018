@@ -2,10 +2,16 @@ package rs.aleph.android.example1.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +37,8 @@ import rs.aleph.android.example1.providers.SastojciProvider;
 // Each fragment extends Fragment class
 public class DetailFragment extends Fragment {
 
+    // TODO
+    private static int NOTIFICATION_ID = 1;
     // Position of the item to be displayed in the detail fragment
     private int position = 0;
 
@@ -130,12 +138,11 @@ public class DetailFragment extends Fragment {
         sastojak.setSelection((int)SastojciProvider.getSastojakById(position).getId());
 
         // Finds "btnBuy" Button and sets "onClickListener" listener
-        Button btnBuy = (Button) getView().findViewById(R.id.btn_buy);
+        FloatingActionButton btnBuy = (FloatingActionButton) getView().findViewById(R.id.btn_buy);
         btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "You've bought " + JeloProvider.getJeloById(position).getNaziv() + "!", Toast.LENGTH_LONG);
-                toast.show();
+                showNotification();
             }
         });
 
@@ -163,7 +170,19 @@ public class DetailFragment extends Fragment {
 //        }
 
     }
+    private void showNotification() {
+        // Creates notification with the notification builder
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity());
+        Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.ic_stat_buy);
+        builder.setSmallIcon(R.drawable.ic_stat_buy);
+        builder.setContentTitle(getActivity().getString(R.string.notification_title));
+        builder.setContentText(getActivity().getString(R.string.notification_text));
+        builder.setLargeIcon(bitmap);
 
+        // Shows notification with the notification manager (notification ID is used to update the notification later on)
+        NotificationManager manager = (NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(NOTIFICATION_ID, builder.build());
+    }
 
     // onStart method is a life-cycle method that is called when the Fragment is visible to the user.
     @Override
@@ -367,12 +386,11 @@ public class DetailFragment extends Fragment {
         sastojak.setSelection((int)SastojciProvider.getSastojakById(position).getId());
 
         // Finds "btnBuy" Button and sets "onClickListener" listener
-        Button btnBuy = (Button) getView().findViewById(R.id.btn_buy);
+        FloatingActionButton btnBuy = (FloatingActionButton) getView().findViewById(R.id.btn_buy);
         btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "You've bought " + JeloProvider.getJeloById(position).getNaziv() + "!", Toast.LENGTH_LONG);
-                toast.show();
+                showNotification();
             }
         });
 

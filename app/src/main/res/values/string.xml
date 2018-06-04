@@ -13,4 +13,7 @@
     <string name="unable_to_invoke_camera">Unable to invoke camere, without permisson!</string>
     <string name="buy">Buy</string>
 
+    <string name="notification_title">Item ordered</string>
+    <string name="notification_text">The selected item has been ordered and will be shipped during the day.</string>
+
 </resources>

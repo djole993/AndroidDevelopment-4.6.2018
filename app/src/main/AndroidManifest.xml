@@ -18,12 +18,24 @@
         <activity
             android:name=".activities.FirstActivity"
             android:label="@string/first_activity_name"
-            android:icon="@mipmap/ic_launcher">
+            android:icon="@mipmap/ic_launcher"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Declares SettingsActivity (the activity used to set app preferences). -->
+        <!--<activity-->
+            <!--android:name=".activities.SettingsActivity"-->
+            <!--android:icon="@mipmap/ic_launcher"-->
+            <!--android:label="@string/activity_settings_name"-->
+            <!--android:theme="@style/AppTheme.NoActionBar"-->
+            <!--android:parentActivityName=".activities.FirstActivity">-->
+
+        <!--</-->
+
 
     </application>
 
