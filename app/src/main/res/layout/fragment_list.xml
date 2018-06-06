@@ -9,14 +9,6 @@
     android:paddingLeft="16dp">
 
 
-    <Button
-        android:id="@+id/btn_start_second_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="btnStartActivityClicked"
-        android:text="@string/second_activity_name"
-        />
-
     <!-- Declares a button that opens a browser -->
     <Button
         android:id="@+id/btn_select_contact"

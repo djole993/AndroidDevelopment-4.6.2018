@@ -5,7 +5,7 @@
 
     <!-- PreferenceCategory is used to group Preference objects and provide a disabled title above the group. -->
     <PreferenceCategory 
-        android:title="Auto data sync" 
+        android:title="Settings"
         android:key="sync_settings">
 
         <!--  CheckBoxPreference will store a boolean into the SharedPreferences. -->
@@ -25,6 +25,14 @@
             android:title="@string/pref_syncConnectionType" 
             android:summary="%s"
             android:defaultValue="1"/>
+
+        <EditTextPreference
+            android:title="@string/ime_restorana"
+            android:summary="@string/Ime_restorana_long"/>
+
+        <EditTextPreference
+            android:title="@string/adresa_short"
+            android:summary="@string/adresa_long"/>
         
     </PreferenceCategory>
 

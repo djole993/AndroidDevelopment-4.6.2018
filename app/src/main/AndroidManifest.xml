@@ -26,15 +26,15 @@
             </intent-filter>
         </activity>
 
-        <!-- Declares SettingsActivity (the activity used to set app preferences). -->
-        <!--<activity-->
-            <!--android:name=".activities.SettingsActivity"-->
-            <!--android:icon="@mipmap/ic_launcher"-->
-            <!--android:label="@string/activity_settings_name"-->
-            <!--android:theme="@style/AppTheme.NoActionBar"-->
-            <!--android:parentActivityName=".activities.FirstActivity">-->
+         Declares SettingsActivity (the activity used to set app preferences).
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/activity_settings_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activities.FirstActivity">
 
-        <!--</-->
+        </activity>
 
 
     </application>

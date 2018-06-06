@@ -41,10 +41,20 @@
     <string name="drawer_open">Open Navigation Drawer</string>
     <string name="drawer_close">Close Navigation Drawer</string>
     <string name="drawer_home">Home</string>
-    <string name="drawer_home_long">Show All Fruits</string>
+    <string name="drawer_home_long">Back To Home</string>
     <string name="drawer_settings">Settings</string>
     <string name="drawer_settings_long">Change App Settings</string>
     <string name="drawer_about">About</string>
     <string name="drawer_about_long">About Us</string>
+    <string name="drawer_Category">Show Category</string>
+    <string name="drawer_Category_long">Show All Category</string>
+    <string name="drawer_food">Show Foods</string>
+    <string name="drawer_Food_long">Show All Foods</string>
+
+    <string name="Ime_restorana_long">Etno Kuca Dinar</string>
+    <string name="ime_restorana">Ime Restorana</string>
+
+    <string name="adresa_long">Skadarska 92, Vrsac</string>
+    <string name="adresa_short">Adresa</string>
 
 </resources>

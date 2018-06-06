@@ -12,157 +12,162 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
 
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp">
-
-    <!-- Declares a button that opens a browser -->
-    <Button
-        android:id="@+id/btn_open_camera"
-        android:layout_width="171dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:drawableLeft="@drawable/ic_action_camera"
-        android:onClick="btnOpenCameraClicked"
-        android:text="@string/open_camera_name" />
-    <WebView
-        android:id="@+id/pageInfo"
-        android:layout_width="0.1dp"
-        android:layout_height="0.1dp" />
-
-    <ImageView
-        android:id="@+id/iv_image"
-        android:layout_width="371dp"
-        android:layout_height="90dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <!-- TextView displays text to the user. -->
-    <TextView
-        android:id="@+id/tv_ime"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/iv_image"
-        android:text="Ime Jela: " />
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="166dp"
-        android:layout_height="29dp"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_ime" />
-
-    <Spinner
-        android:id="@+id/sp_lista_sastojka"
-        android:layout_width="175dp"
-        android:layout_height="60dp"
-        android:layout_alignRight="@+id/iv_image"
-        android:layout_below="@+id/tv_name" />
-
-    <TextView
-        android:id="@+id/tv_opis"
-        android:layout_width="169dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_kaloriska_vrednost"
-        android:text="Opis: "
-        android:textSize="18sp"
-        android:gravity="center_vertical"/>
-
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="173dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_opis" />
-
-    <TextView
-        android:id="@+id/tv_kaloriska"
-        android:layout_width="148dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_cena_hrane"
-        android:text="Kaloriska Vrednost" />
-
-    <!-- TextView displays text to the user. -->
-    <TextView
-        android:id="@+id/tv_cena"
-        android:layout_width="174dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_name"
-        android:text="Cena" />
-
-    <!-- Spinners provide a quick way to select one value from a set. -->
-    <Spinner
-        android:id="@+id/sp_kategorija"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="105dp" />
-    <!-- Button can be pressed, or clicked, by the user to perform an action. -->
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_anchor="@+id/relativeLayout"
+        app:layout_anchorGravity="right|bottom">
 
-    <RatingBar
-        android:id="@+id/rb_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_open_camera"
-        android:layout_alignParentRight="true"
-        android:numStars="5" />
+        <!-- Declares a button that opens a browser -->
+
+        <WebView
+            android:id="@+id/pageInfo"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp" />
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="371dp"
+            android:layout_height="90dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <!-- TextView displays text to the user. -->
+        <TextView
+            android:id="@+id/tv_ime"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/iv_image"
+            android:text="Ime Jela: " />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="166dp"
+            android:layout_height="29dp"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_ime" />
+
+        <Spinner
+            android:id="@+id/sp_lista_sastojka"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@+id/iv_image"
+            android:layout_below="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_opis"
+            android:layout_width="169dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_kaloriska_vrednost"
+            android:gravity="center_vertical"
+            android:text="Opis: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_opis" />
+
+        <TextView
+            android:id="@+id/tv_kaloriska"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_cena_hrane"
+            android:text="Kaloriska Vrednost" />
+
+        <!-- TextView displays text to the user. -->
+        <TextView
+            android:id="@+id/tv_cena"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_name"
+            android:text="Cena" />
+
+        <!-- Spinners provide a quick way to select one value from a set. -->
+        <Spinner
+            android:id="@+id/sp_kategorija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="105dp" />
+        <!-- Button can be pressed, or clicked, by the user to perform an action. -->
+
+        <RatingBar
+            android:id="@+id/rb_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_open_camera"
+            android:layout_alignParentRight="true"
+            android:numStars="5" />
 
 
+        <TextView
+            android:id="@+id/tv_cena_hrane"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_cena" />
 
-    <TextView
-        android:id="@+id/tv_cena_hrane"
-        android:layout_width="173dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_cena" />
+        <TextView
+            android:id="@+id/tv_kaloriska_vrednost"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_open_camera"
+            android:layout_below="@+id/tv_kaloriska" />
 
-    <TextView
-        android:id="@+id/tv_kaloriska_vrednost"
-        android:layout_width="173dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_open_camera"
-        android:layout_below="@+id/tv_kaloriska" />
+        <TextView
+            android:id="@+id/tv_list_sastojka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="0dp"
+            android:text="TextView"
+            tools:text="Lista Sastojka" />
 
-    <TextView
-        android:id="@+id/tv_list_sastojka"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_name"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="0dp"
-        android:text="TextView"
-        tools:text="Lista Sastojka" />
+        <TextView
+            android:id="@+id/tv_kategorija_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/sp_kategorija"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:text="TextView"
+            tools:text="Kategorija" />
 
-    <TextView
-        android:id="@+id/tv_kategorija_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/sp_kategorija"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="25dp"
-        android:text="TextView"
-        tools:text="Kategorija" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_open_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/pageInfo"
+            android:layout_gravity="bottom|end"
+            android:onClick="btnOpenCameraClicked"
+            android:src="@drawable/ic_action_camera" />
 
 
     </RelativeLayout>
 
     <!-- Floating action buttons are used for a special type of promoted action. They are distinguished by
    a circled icon floating above the UI and have special motion behaviors related to morphing, launching, and the transferring anchor point.  -->
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:src="@drawable/ic_stat_buy" />
+
 
 </android.support.design.widget.CoordinatorLayout>
