@@ -33,8 +33,8 @@ import rs.aleph.android.example1.model.NavigationItem;
 
 // Each activity extends Activity class
 public class FirstActivity extends AppCompatActivity implements ListFragment.OnItemSelectedListener {
-	//04.06.2018
-	// Screen orientation
+	//11.06.2018
+	// niti
 	private boolean landscape = false;
 
 	// Position of the item to be displayed in the detail fragment

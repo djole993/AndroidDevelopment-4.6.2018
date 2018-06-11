@@ -5,12 +5,10 @@ public class Sastojak {
     private int id;
     private String naziv;
     private Jelo jelo;
-//    private List<Kategorija> kategorija;
 
 
     public Sastojak(){
 
-//        kategorija =  new ArrayList<>();
 
     }
 
@@ -18,7 +16,6 @@ public class Sastojak {
         this.id = idSastojci;
         this.naziv = nazivSastojic;
 
-//        kategorija =  new ArrayList<>();
 
     }
 

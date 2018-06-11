@@ -2,7 +2,11 @@ package rs.aleph.android.example1.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +18,20 @@ import android.widget.Toast;
 import java.util.List;
 
 import rs.aleph.android.example1.R;
+import rs.aleph.android.example1.adapters.ProductsRecyclerViewAdapter;
+import rs.aleph.android.example1.model.Jelo;
 import rs.aleph.android.example1.providers.JeloProvider;
 
-public class ListFragment extends Fragment{
+public class ListFragment extends Fragment implements ProductsRecyclerViewAdapter.OnProductClickedListener {
+
+    @Override
+    public void onProductClicked(int id) {
+
+        if(listener !=null){
+            listener.onItemSelected(id);
+        }
+
+    }
 
     public interface OnItemSelectedListener{
 
@@ -24,6 +39,8 @@ public class ListFragment extends Fragment{
     }
 
     OnItemSelectedListener listener;
+    RecyclerView rvJela;
+
 
     // onAttach method is a life-cycle method that is called when a fragment is first attached to its context.
     @Override
@@ -40,7 +57,38 @@ public class ListFragment extends Fragment{
             throw new ClassCastException(activity.toString() + " must implement OnItemSelectedListener");
         }
     }
+    public class GetProductsAsyncTask extends AsyncTask<Void, Void, List<Jelo>> {
 
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(ListFragment.this.getActivity());
+            progressDialog.setMessage("Loading fruits...");
+            progressDialog.show();
+        }
+
+        @Override
+        protected List<Jelo> doInBackground(Void... voids) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+                return null;
+            }
+            return JeloProvider.getJelo();
+        }
+
+        @Override
+        protected void onPostExecute(List<Jelo> jela) {
+            super.onPostExecute(jela);
+            if (progressDialog != null){
+                progressDialog.dismiss();
+            }
+            setupProductList(jela);
+        }
+    }
     // onCreate method is a life-cycle method that is called when creating the fragment.
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,27 +119,20 @@ public class ListFragment extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+        rvJela= (RecyclerView) getView().findViewById(R.id.lista_jela);
+        new GetProductsAsyncTask().execute();
 
         // Shows a toast message (a pop-up message)
         Toast.makeText(getActivity(), "ListFragment.onActivityCreated()", Toast.LENGTH_SHORT).show();
 
-        // Loads food from array resource
-        final List<String> jeloNames = JeloProvider.getJeloNames();
 
-        // Creates an ArrayAdaptar from the array of String
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), R.layout.list_item, jeloNames);
-        ListView listView = (ListView) getActivity().findViewById(R.id.lista_jela);
 
-        // Assigns ArrayAdaptar to ListView
-        listView.setAdapter(dataAdapter);
+    }
 
-        // Updates DetailFragment
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listener.onItemSelected(position);
-            }
-        });
-
+    private void setupProductList(List<Jelo> jela) {
+        rvJela.setLayoutManager(new LinearLayoutManager(getActivity()));
+        ProductsRecyclerViewAdapter adapter = new ProductsRecyclerViewAdapter(jela, this);
+        rvJela.setAdapter(adapter);
     }
 
     // onStart method is a life-cycle method that is called when the Fragment is visible to the user.
