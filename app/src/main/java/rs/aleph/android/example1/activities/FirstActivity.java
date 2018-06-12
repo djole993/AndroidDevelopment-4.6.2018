@@ -26,16 +26,18 @@ import java.util.ArrayList;
 
 import rs.aleph.android.example1.R;
 import rs.aleph.android.example1.adapters.DrawerAdapter;
+import rs.aleph.android.example1.async.SimpleSyncTask;
 import rs.aleph.android.example1.dialogs.AboutDialog;
 import rs.aleph.android.example1.fragments.DetailFragment;
 import rs.aleph.android.example1.fragments.ListFragment;
 import rs.aleph.android.example1.model.NavigationItem;
 
 // Each activity extends Activity class
-public class FirstActivity extends AppCompatActivity implements ListFragment.OnItemSelectedListener {
+public class FirstActivity extends AppCompatActivity implements  ListFragment.OnItemSelectedListener {
 	//11.06.2018
 	// niti
 	private boolean landscape = false;
+
 
 	// Position of the item to be displayed in the detail fragment
 	private int position = 0;
@@ -390,6 +392,7 @@ public class FirstActivity extends AppCompatActivity implements ListFragment.OnI
 				break;
 			case R.id.action_update:
 				Toast.makeText(this, "Action " + getString(R.string.fragment_detal_action_update) + " executed.", Toast.LENGTH_SHORT).show();
+				new SimpleSyncTask(getApplicationContext()).execute();
 				break;
 			case R.id.action_delete:
 				Toast.makeText(this, "Action " + getString(R.string.fragment_detal_action_delete) + " executed.", Toast.LENGTH_SHORT).show();

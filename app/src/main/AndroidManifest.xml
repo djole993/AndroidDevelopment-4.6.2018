@@ -5,7 +5,7 @@
 
     <!-- Declares that the app needs a permission to access internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!--<uses-permission android:name="android.permission.CAMERA"/>-->
 
     <application
@@ -32,9 +32,12 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/activity_settings_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".activities.FirstActivity">
+            android:parentActivityName=".activities.FirstActivity"/>
 
-        </activity>
+
+
+        <!--Moramo definisati punu putanju do naseg servisa-->
+        <service android:name="rs.aleph.android.example1.async.SimpleService"/>
 
 
     </application>

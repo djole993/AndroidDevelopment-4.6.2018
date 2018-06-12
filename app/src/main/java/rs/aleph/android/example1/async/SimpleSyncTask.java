@@ -1,10 +1,12 @@
 package rs.aleph.android.example1.async;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
 import rs.aleph.android.example1.fragments.ListFragment;
+import rs.aleph.android.example1.tools.ReviewerTools;
 
 
 /**
@@ -21,15 +23,25 @@ import rs.aleph.android.example1.fragments.ListFragment;
  * Treci parametar je povratna vrednost, tj sta ce metoda doInBackground
  * vratiti kao poratnu vrednost metodi onPostExecute
  */
-public class SimpleSyncTask extends AsyncTask<Void, Void, Void>{
+public class SimpleSyncTask extends AsyncTask<Void, Void, Integer>{
 
-    private Activity activity;
-    private ListFragment.OnItemSelectedListener listener;
 
-    public SimpleSyncTask(Activity activity) {
-        this.activity = activity;
-        listener = (ListFragment.OnItemSelectedListener) activity;
+    private Context context;
+
+    public SimpleSyncTask(Context context){
+        this.context = context;
     }
+
+
+
+
+//        private Activity activity;
+//    private ListFragment.OnItemSelectedListener listener;
+//
+//    public SimpleSyncTask(Activity activity) {
+//        this.activity = activity;
+//        listener = (ListFragment.OnItemSelectedListener) activity;
+//    }
 
     /**
      * Metoda se poziva pre samog starta pozadinskog zadatka
@@ -44,7 +56,7 @@ public class SimpleSyncTask extends AsyncTask<Void, Void, Void>{
      * Sav posao koji dugo traje izvrsavati unutar ove metode.
      */
     @Override
-    protected Void doInBackground(Void... params) {
+    protected Integer doInBackground(Void... params) {
         try {
             //simulacija posla koji se obavlja u pozadini i traje duze vreme
             Thread.sleep(6000);
@@ -52,7 +64,7 @@ public class SimpleSyncTask extends AsyncTask<Void, Void, Void>{
             e.printStackTrace();
         }
 
-        return null;
+        return ReviewerTools.getConnectivityStatus(context);
     }
 
     /**
@@ -61,7 +73,16 @@ public class SimpleSyncTask extends AsyncTask<Void, Void, Void>{
      * Ako je potrebno osloboditi resurse ili obrisati elemente koji vise ne trebaju.
      */
     @Override
-    protected void onPostExecute(Void products) {
-        Toast.makeText(activity, "Sync done", Toast.LENGTH_SHORT).show();
+    protected void onPostExecute(Integer status) {
+        String msg = "Uredjaj nije povezan na mrezu";
+        switch (status){
+            case ReviewerTools.TYPE_MOBILE:
+                msg = "Uredjaj je povezan preko mobilne mreze";
+                break;
+            case ReviewerTools.TYPE_WIFI:
+                msg = "Uredjaj je povezan preko WIFI";
+                break;
+        }
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 }
