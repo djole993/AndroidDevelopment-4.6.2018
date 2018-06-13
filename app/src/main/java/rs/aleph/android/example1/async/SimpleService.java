@@ -27,14 +27,20 @@ public class SimpleService extends Service{
          * Provericemo trenutnu povezanost sa mrezom.
          * Za ovo koristimo dostupne pozive android operativnog sistema
          * */
-        int status = ReviewerTools.getConnectivityStatus(getApplicationContext());
+
+        //        int status = ReviewerTools.getConnectivityStatus(getApplicationContext());
+
+                int status = intent.getExtras().getInt("STATUS");
 
         /**
          * Primer poziva asinhronog zadatka ako ima veze ka mrezi
          * npr. sinhronizacija mail-ova fotografija, muzike dokumenata isl.
          * */
+
+        new SimpleSyncTask(getApplicationContext()).execute();// treba .execute(status);
+
         if(status == ReviewerTools.TYPE_WIFI){
-            new SimpleSyncTask(getApplicationContext()).execute();
+
         }
 
         /**

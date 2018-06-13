@@ -33,9 +33,9 @@ import rs.aleph.android.example1.fragments.ListFragment;
 import rs.aleph.android.example1.model.NavigationItem;
 
 // Each activity extends Activity class
-public class FirstActivity extends AppCompatActivity implements  ListFragment.OnItemSelectedListener {
-	//11.06.2018
-	// niti
+public class FirstActivity extends AppCompatActivity implements ListFragment.OnItemSelectedListener {
+	//13.06.2018
+	// rad na casu servise za netvork mrezu
 	private boolean landscape = false;
 
 
@@ -59,31 +59,7 @@ public class FirstActivity extends AppCompatActivity implements  ListFragment.On
 	private class DrawerItemClickListener implements ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			if (position == 0) {
-				// TODO
-				// FirstActivity is already shown
-			} else if (position == 1) {
-				Intent settings = new Intent(FirstActivity.this, SettingsActivity.class);
-				startActivity(settings);
-			} else if (position == 2) {
-				if (dialog == null) {
-					dialog = new AboutDialog(FirstActivity.this).prepareDialog();
-				} else {
-					if (dialog.isShowing()) {
-						dialog.dismiss();
-					}
-				}
-				// TODO: SImplify
-				// To not create dialog class
-				// call it from here.
-
-				dialog.show();
-			}
-
-			drawerList.setItemChecked(position, true);
-			setTitle(drawerItems.get(position).getTitle());
-			drawerLayout.closeDrawer(drawerPane);
-
+			selectItemFromDrawer(position);
 		}
 	}
 
@@ -399,7 +375,7 @@ public class FirstActivity extends AppCompatActivity implements  ListFragment.On
 				Snackbar.make(findViewById(R.id.list_view), "test", Snackbar.LENGTH_SHORT).show();
 				break;
 		}
-
+		// ovde zeki treb da dodas novo dugme u tool baru za sihronizaciju
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -434,6 +410,36 @@ public class FirstActivity extends AppCompatActivity implements  ListFragment.On
 		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		startActivity(takePictureIntent);
 	}
+	private void selectItemFromDrawer(int position){
+
+		if (position == 0) {
+			// TODO
+			// FirstActivity is already shown
+		} else if (position == 1) {
+			Intent settings = new Intent(FirstActivity.this, SettingsActivity.class);
+			startActivity(settings);
+		} else if (position == 2) {
+			if (dialog == null) {
+				dialog = new AboutDialog(FirstActivity.this).prepareDialog();
+			} else {
+				if (dialog.isShowing()) {
+					dialog.dismiss();
+				}
+			}
+			// TODO: SImplify
+			// To not create dialog class
+			// call it from here.
+
+			dialog.show();
+		}
+
+		drawerList.setItemChecked(position, true);
+		setTitle(drawerItems.get(position).getTitle());
+		drawerLayout.closeDrawer(drawerPane);
+	}
+
+
+
 }
 
 

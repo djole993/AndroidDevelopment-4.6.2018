@@ -37,4 +37,7 @@ public class ReviewerTools {
                 return "Uredjaj nije povezan na Internet Mrezu";
         }
     }
+    public static int calculateTimeTillNextSync(int minutes){
+        return 1000 * 60 * minutes;
+    }
 }
